@@ -9,5 +9,4 @@ public class NyTimesRestClientApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(NyTimesRestClientApplication.class, args);
 	}
-
 }
