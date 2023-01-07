@@ -25,9 +25,18 @@ public class NyTimesController {
 		return "Hello!";
 	}
 
-	@GetMapping
-	public void getArticleByKeyWord(final String keyword) {
-		this.articleSearch.searchArticleByKeyWord(keyword);
+	@GetMapping("/searchArticle")
+	public void getArticleByKeyWord(@RequestParam(name="beginDate", required = true) final String beginDate,
+			@RequestParam(name = "endDate", required = true) final String endDate,
+			@RequestParam(name = "facet", required = true) final Boolean facet,
+			@RequestParam(name = "facet_fields", required = true) final String facet_fields,
+			@RequestParam(name = "facet_filter", required = true) final Boolean facet_filter,
+			@RequestParam(name = "fl", required = true) final String fl,
+			@RequestParam(name = "fq", required = true) final String fq,
+			@RequestParam(name = "page", required = true) final Integer page,
+			@RequestParam(name="query", required=true) final String q,
+			@RequestParam(name = "sort", required = true) final String sort) {
+		this.articleSearch.searchArticleByKeyWord(beginDate, endDate, facet, facet_fields, facet_filter, fl, fq, page, q, sort);
 	}
 
 	@GetMapping("/bookList")
